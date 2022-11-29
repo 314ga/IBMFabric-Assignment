@@ -1,0 +1,16 @@
+{
+    "endorsing_organizations": [
+        {
+            "name": "SampleOrg"
+        }
+    ],
+    "channels": [
+        {
+            "name": "mychannel",
+            "endorsing_organizations": [
+                "SampleOrg"
+            ]
+        }
+    ],
+    "tls": []
+}
