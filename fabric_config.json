@@ -1,16 +1,8 @@
 {
-    "endorsing_organizations": [
-        {
-            "name": "SampleOrg"
-        }
-    ],
-    "channels": [
-        {
-            "name": "mychannel",
-            "endorsing_organizations": [
-                "SampleOrg"
-            ]
-        }
-    ],
-    "tls": []
+    "tls": {
+        "enabled": false,
+        "certificate": null,
+        "private_key": null,
+        "ca": null
+    }
 }
