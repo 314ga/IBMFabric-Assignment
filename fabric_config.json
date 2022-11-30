@@ -1,8 +1,0 @@
-{
-    "tls": {
-        "enabled": false,
-        "certificate": null,
-        "private_key": null,
-        "ca": null
-    }
-}

@@ -1,1 +1,0 @@
-FROM ibmcom/ibp-microfab:latest
