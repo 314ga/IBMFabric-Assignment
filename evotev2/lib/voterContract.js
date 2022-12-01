@@ -48,8 +48,8 @@ class MyAssetContractContract extends Contract {
         let election;
 
         //create voters
-        let voter1 = await new Voter("V1", "234", "Horea", "Porutiu");
-        let voter2 = await new Voter("V2", "345", "Duncan", "Conley");
+        let voter1 = await new Voter("1", "123", "Jakub", "Piga");
+        let voter2 = await new Voter("3", "456", "Jakub", "PigaPiga");
 
         //update voters array
         voters.push(voter1);
@@ -79,6 +79,8 @@ class MyAssetContractContract extends Contract {
             election = await new Election(
                 electionData.electionName,
                 electionData.electionCountry,
+                electionData.electionRegion,
+                electionData.electionMunicipality,
                 electionData.electionYear,
                 electionStartDate,
                 electionEndDate
@@ -94,40 +96,16 @@ class MyAssetContractContract extends Contract {
         } else {
             election = currElections[0];
         }
-
         //create votableItems for the ballots
-        let repVotable = await new VotableItem(
-            ctx,
-            "Republican",
-            ballotData.fedDemocratBrief
-        );
-        let demVotable = await new VotableItem(
-            ctx,
-            "Democrat",
-            ballotData.republicanBrief
-        );
-        let indVotable = await new VotableItem(
-            ctx,
-            "Green",
-            ballotData.greenBrief
-        );
-        let grnVotable = await new VotableItem(
-            ctx,
-            "Independent",
-            ballotData.independentBrief
-        );
-        let libVotable = await new VotableItem(
-            ctx,
-            "Libertarian",
-            ballotData.libertarianBrief
-        );
-
+        let SDU = await new VotableItem(ctx, "SDU", ballotData.SDU);
+        let VIAH = await new VotableItem(ctx, "VIAH", ballotData.VIAH);
+        let CPH = await new VotableItem(ctx, "CPH", ballotData.CPH);
+        let VIACPH = await new VotableItem(ctx, "VIACPH", ballotData.VIACPH);
         //populate choices array so that the ballots can have all of these choices
-        votableItems.push(repVotable);
-        votableItems.push(demVotable);
-        votableItems.push(indVotable);
-        votableItems.push(grnVotable);
-        votableItems.push(libVotable);
+        votableItems.push(SDU);
+        votableItems.push(VIAH);
+        votableItems.push(CPH);
+        votableItems.push(VIACPH);
 
         for (let i = 0; i < votableItems.length; i++) {
             //save votable choices in world state

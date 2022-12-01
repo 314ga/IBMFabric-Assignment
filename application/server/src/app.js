@@ -9,7 +9,6 @@ const path = require("path");
 const fs = require("fs");
 
 let network = require("./fabric/network.js");
-let admin = require("../enrollAdmin.js");
 //let user = require("../registerUser.js");
 //console.log(admin);
 const app = express();
